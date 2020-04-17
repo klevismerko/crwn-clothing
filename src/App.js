@@ -54,9 +54,12 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({ currentUser: user.currentUser });
+const mapStateToProps = (store) => ({
+  currentUser: store.user.currentUser, //store.rootReducer reducer name
+});
 
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);
